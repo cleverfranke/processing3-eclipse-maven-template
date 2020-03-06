@@ -1,0 +1,53 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>cleverfranke</groupId>
+	<artifactId>processing-template</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Processing Template</name>
+	<repositories>
+		<!-- Using Quil libraries for all Processing libraries -->
+		<repository>
+			<id>clojars.org</id>
+			<url>http://clojars.org/repo</url>
+		</repository>
+	</repositories>
+	<dependencies>
+		<dependency>
+			<groupId>quil</groupId>
+			<artifactId>processing-core</artifactId>
+			<version>3.5.3</version>
+		</dependency>
+		<dependency>
+			<groupId>quil</groupId>
+			<artifactId>processing-svg</artifactId>
+			<version>3.5.3</version>
+		</dependency>
+		<dependency>
+			<groupId>quil</groupId>
+			<artifactId>processing-pdf</artifactId>
+			<version>3.5.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.lowagie</groupId>
+			<artifactId>itext</artifactId>
+			<version>2.1.7</version>
+		</dependency>
+		<dependency>
+			<groupId>quil</groupId>
+			<artifactId>processing-dxf</artifactId>
+			<version>3.5.3</version>
+		</dependency>
+		<dependency>
+			<groupId>quil</groupId>
+			<artifactId>gluegen-rt-fat</artifactId>
+			<version>2.3.2</version>
+		</dependency>
+		<dependency>
+			<groupId>quil</groupId>
+			<artifactId>jogl-all-fat</artifactId>
+			<version>2.3.2</version>
+		</dependency>
+	</dependencies>
+</project>
