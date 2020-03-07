@@ -5,6 +5,8 @@ package com.cleverfranke;
  * relying on PGraphics or PApplet
  */
 public class Color {
+	
+	private Color() {}
 
 	/**
 	 * Create grey scale color
@@ -13,7 +15,7 @@ public class Color {
 	 * @return
 	 */
 	public static int color(float grey) {
-		return color(grey * 255f);
+		return color((int) (grey * 255f));
 	}
 	
 	/**
@@ -34,7 +36,7 @@ public class Color {
 	 * @return
 	 */
 	public static int color(float grey, float a) {
-		return color(grey * 255f, a * 255f);
+		return color((int) (grey * 255f), (int) (a * 255f));
 	}
 	
 	/**
@@ -57,7 +59,7 @@ public class Color {
 	 * @return
 	 */
 	public static int color(float r, float g, float b) {
-		return color((int) r * 255f, (int) g * 255f, (int) b * 255f);
+		return color((int) (r * 255f), (int) (g * 255f), (int) (b * 255f));
 	}
 	
 	/**
@@ -82,7 +84,7 @@ public class Color {
 	 * @return
 	 */
 	public static int color(float r, float g, float b, float a) {
-		return color(r * 255f, g * 255f, b * 255f, a * 255f);
+		return color((int) (r * 255f), (int) (g * 255f), (int) (b * 255f), (int) (a * 255f));
 	}
 	
 	/**
@@ -95,6 +97,10 @@ public class Color {
 	 * @return
 	 */
 	public static int color(int r, int g, int b, int a) {
+		r = clampValue(r);
+		g = clampValue(g);
+		b = clampValue(b);
+		a = clampValue(a);
 		return (a << 24) | (r << 16) | (g << 8) | b;
 	}
 	
@@ -124,7 +130,7 @@ public class Color {
 				Integer.valueOf(hex.substring(7, 9), 16));
 			
 		} else {
-			return 0;
+			return color(0);
 		}
 			
 	}
@@ -167,6 +173,15 @@ public class Color {
 	 */
 	public static int alpha(int color) {
 		return (color >> 24) & 0xFF;
+	}
+	
+	/**
+	 * Clamp v to [0, 255]
+	 * @param v
+	 * @return
+	 */
+	private static int clampValue(int v) {
+		return Math.min(255, Math.max(0, v));
 	}
 	
 }
