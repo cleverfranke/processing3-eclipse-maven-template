@@ -40,7 +40,7 @@ I might look into this.
 ** Local dependencies **
 
 * [Ani](http://www.looksgood.de/libraries/Ani/) for Animation
-
+* [ControlP5](http://www.sojamo.de/libraries/controlP5) for UI
 
 ### Adding dependencies
 
