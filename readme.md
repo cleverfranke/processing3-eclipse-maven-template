@@ -39,8 +39,8 @@ I might look into this.
  
 ** Local dependencies **
 
-* [Ani](http://www.looksgood.de/libraries/Ani/) for Animation
-* [ControlP5](http://www.sojamo.de/libraries/controlP5) for UI
+* [Ani 2.7](http://www.looksgood.de/libraries/Ani/) for Animation
+* [ControlP5 2.2.5](http://www.sojamo.de/libraries/controlP5) for UI
 
 ### Adding dependencies
 

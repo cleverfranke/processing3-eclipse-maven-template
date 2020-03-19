@@ -14,7 +14,7 @@ public class ControlP5Example extends PApplet {
 	@Override
 	public void settings() {
 		// Add settings here
-		size(640, 480, P3D);
+		size(640, 480);
 	}
 
 	@Override
