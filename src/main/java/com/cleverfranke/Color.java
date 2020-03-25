@@ -110,24 +110,37 @@ public class Color {
 	 * @param hex #RRGGBB or #RRGGBBAA
 	 * @return
 	 */
+	/**
+	 * Create color from HEX string
+	 * 
+	 * @param hex #RRGGBB, RRGGBB, #RRGGBBAA or RRGGBBAA
+	 * @return
+	 */
 	public static int color(String hex) {
 		
-		if (hex.length() == 7) { 
+		if (hex.length() == 8) { 
 			
-			// #RRGGBB
+			// RRGGBBAA
 			return color(
-					Integer.valueOf(hex.substring(1, 3), 16),
-					Integer.valueOf(hex.substring(3, 5), 16),
-					Integer.valueOf(hex.substring(5, 7), 16));
+				Integer.valueOf(hex.substring(0, 2), 16),
+				Integer.valueOf(hex.substring(2, 4), 16),
+				Integer.valueOf(hex.substring(4, 6), 16),
+				Integer.valueOf(hex.substring(6, 8), 16));
 			
-		} else if (hex.length() == 9) { 
+		} else if (hex.length() == 9) {
 			
-			// #RRGGBBAA
-			return color(
-				Integer.valueOf(hex.substring(1, 3), 16),
-				Integer.valueOf(hex.substring(3, 5), 16),
-				Integer.valueOf(hex.substring(5, 7), 16),
-				Integer.valueOf(hex.substring(7, 9), 16));
+			// #RRGGBBAA, convert to RRGGBBAA
+			return color(hex.substring(1));
+		
+		}else if (hex.length() == 6) {
+			
+			// RRGGBB, convert to RRGGBBAA
+			return color(hex + "FF");
+			
+		} else if (hex.length() == 7) { 
+			
+			// #RRGGBB, convert to RRGGBBAA
+			return color(hex.substring(1) + "FF");
 			
 		} else {
 			return color(0);

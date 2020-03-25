@@ -111,10 +111,15 @@ public class ColorTest {
 				for (int b = 0; b < 255; b += increment) {
 					assertEquals(Color.color(String.format("#%02X%02X%02X", r, g, b)), applet.color(r, g, b)); // #RRGGBB
 					assertEquals(Color.color(String.format("#%02x%02x%02x", r, g, b)), applet.color(r, g, b)); // #rrggbb
+					assertEquals(Color.color(String.format("%02X%02X%02X", r, g, b)), applet.color(r, g, b)); // RRGGBB
+					assertEquals(Color.color(String.format("%02x%02x%02x", r, g, b)), applet.color(r, g, b)); // rrggbb
+					
 					
 					for (int a = 0; a < 255; a += increment) {
 						assertEquals(Color.color(String.format("#%02X%02X%02X%02X", r, g, b, a)), applet.color(r, g, b, a)); // #RRGGBBAA
 						assertEquals(Color.color(String.format("#%02x%02x%02x%02x", r, g, b, a)), applet.color(r, g, b, a)); // #rrggbbaa
+						assertEquals(Color.color(String.format("%02X%02X%02X%02X", r, g, b, a)), applet.color(r, g, b, a)); // RRGGBBAA
+						assertEquals(Color.color(String.format("%02x%02x%02x%02x", r, g, b, a)), applet.color(r, g, b, a)); // rrggbbaa
 					}
 					
 				}
@@ -125,9 +130,7 @@ public class ColorTest {
 		assertEquals(Color.color(""), applet.color(0));
 		assertEquals(Color.color("hello world"), applet.color(0));
 		assertEquals(Color.color("000000"), applet.color(0));
-		assertEquals(Color.color("ffffff"), applet.color(0));
-		
-		assertEquals(Color.color("#ffffffff"), applet.color(255, 255, 255, 255));
+		assertEquals(Color.color("ffffff"), applet.color(255, 255, 255, 255));
 		
 	}
 	
