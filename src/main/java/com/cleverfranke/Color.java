@@ -176,6 +176,28 @@ public class Color {
 	}
 	
 	/**
+	 * Apply alpha to existing color
+	 * 
+	 * @param color
+	 * @param a  [0, 255]
+	 * @return
+	 */
+	public static int colorWithAlpha(int color, int a) {
+		return color(red(color), green(color), blue(color), a);
+	}
+	
+	/**
+	 * Apply alpha to existing color
+	 * 
+	 * @param color
+	 * @param a  [0f, 1f]
+	 * @return
+	 */
+	public static int colorWithAlpha(int color, float a) {
+		return color(red(color), green(color), blue(color), (int) (a * 255f));
+	}
+	
+	/**
 	 * Clamp v to [0, 255]
 	 * @param v
 	 * @return

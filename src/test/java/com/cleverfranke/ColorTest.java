@@ -153,5 +153,63 @@ public class ColorTest {
 		}
 		
 	}
+	
+	@Test
+	public void testAlpha() {
+		
+		final int increment = 10;
+		
+		for (int r = 0; r < 255; r += increment) {
+			for (int g = 0; g < 255; g+= increment) {
+				for (int b = 0; b < 255; b += increment) {
+					
+					int color = Color.color(r, g, b);
+					
+					for (int a = 0; a < 255; a += increment) {
+						
+						int colorWithAlpha = Color.colorWithAlpha(color, a);
+						
+						// Test for equal colors
+						assertEquals(Color.red(color), Color.red(colorWithAlpha));
+						assertEquals(Color.green(color), Color.green(colorWithAlpha));
+						assertEquals(Color.blue(color), Color.blue(colorWithAlpha));
+						
+						// Test for alpha
+						assertEquals(Color.alpha(colorWithAlpha), a);
+						
+					}
+				}
+			}
+		}
+		
+	}
+	
+	@Test
+	public void testAlphaFloat() {
+		
+		for (float r = 0; r < 1f; r += COLOR_FLOAT_INCREMENT) {
+			for (float g = 0; g < 1f; g+= COLOR_FLOAT_INCREMENT) {
+				for (float b = 0; b < 1f; b += COLOR_FLOAT_INCREMENT) {
+					
+					int color = Color.color(r, g, b);
+					
+					for (float a = 0; a < 1f; a += COLOR_FLOAT_INCREMENT) {
+						
+						int colorWithAlpha = Color.colorWithAlpha(color, a);
+						
+						// Test for equal colors
+						assertEquals(Color.red(color), Color.red(colorWithAlpha));
+						assertEquals(Color.green(color), Color.green(colorWithAlpha));
+						assertEquals(Color.blue(color), Color.blue(colorWithAlpha));
+						
+						// Test for alpha
+						assertEquals(Color.alpha(colorWithAlpha), (int) (a * 255f));
+						
+					}
+				}
+			}
+		}
+		
+	}
 
 }
